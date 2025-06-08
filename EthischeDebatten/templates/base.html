@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Ethische Fragen zu Leben und Tod</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+</head>
+<body>
+    <header>
+        <h1>Ethische Fragen zu Leben und Tod</h1>
+        <nav>
+            <a href="{% url 'dashboard' %}">Start</a>
+            {% if user.is_authenticated %}
+                <span>Angemeldet als {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 – Religion Projekt von Jonas, Henri, Louis, Florian</p>
+    </footer>
+</body>
+</html>

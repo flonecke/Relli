@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Übersicht</h2>
+
+<h3>Fragen beantworten</h3>
+<ul>
+  {% for frage in fragen %}
+    <li>
+      <a href="{% url 'frage_detail' frage.id %}">{{ frage.frage_text|truncatechars:80 }}</a>
+    </li>
+  {% empty %}
+    <li>Keine Fragen verfügbar.</li>
+  {% endfor %}
+</ul>
+
+<h3>Theorietexte lesen</h3>
+<ul>
+  <li>
+    <a href="/theorie/1/">Ist sterbehilfe moralisch vertretbar</a>
+  </li>
+</ul>
+
+<h3>Andere Antworten bewerten</h3>
+<p><a href="{% url 'antworten_bewerten' %}">Jetzt bewerten</a></p>
+{% endblock %}

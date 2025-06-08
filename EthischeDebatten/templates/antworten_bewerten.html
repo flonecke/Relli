@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if keine_antwort %}
+  <p>Aktuell gibt es keine Antworten zum Bewerten. Versuche es später nochmal!</p>
+{% else %}
+  <h2>Antwort bewerten</h2>
+  <h3>Frage: {{ antwort.frage.frage_text }}</h3>
+  <blockquote>{{ antwort.antwort_text }}</blockquote>
+  <form method="post">
+      {% csrf_token %}
+      <label>Bewertung:</label><br>
+      <select name="bewertung" required>
+          <option value="1">Unvertretbar</option>
+          <option value="2">Okey</option>
+          <option value="3">Vertretbar</option>
+      </select><br><br>
+      <textarea name="kommentar" rows="4" cols="60" placeholder="Kommentar (optional)"></textarea><br>
+      <button type="submit">Absenden</button>
+  </form>
+{% endif %}
+
+{% endblock %}
