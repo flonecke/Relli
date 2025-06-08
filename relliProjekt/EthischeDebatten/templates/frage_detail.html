@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Frage</h2>
+<p><strong>{{ frage.frage_text }}</strong></p>
+
+{% if bereits_geantwortet %}
+<p>Du hast diese Frage bereits beantwortet.</p>
+{% else %}
+<form method="post">
+    {% csrf_token %}
+    <label>Deine Antwort:</label><br>
+    <textarea name="antwort" rows="6" cols="60" required></textarea><br>
+    <button type="submit">Antwort absenden</button>
+</form>
+{% endif %}
+
+{% endblock %}
