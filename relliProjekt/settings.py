@@ -29,6 +29,9 @@ ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ["*"]
 
+CRSF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 
 # Application definition
 
